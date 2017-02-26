@@ -1,22 +1,11 @@
 console.log('app.js loading...')
-
-var colors = generateColors(6);
-var correctColor = pickColor();
-var messageDisplay = document.querySelector('#message')
-
-document.querySelector('span').textContent = correctColor;
-
+var numOfSquares  = 6;
 var squares = document.querySelectorAll('.square')
-for (var i = 0; i < squares.length; i++) {
-  // change background color
-  squares[i].style.background = colors[i];
-  // add click listner
-  squares[i].addEventListener('click', function(square){
-    var clickedColor = this.style.background;
-
-    if (clickedColor === correctColor) {
-      messageDisplay.textContent = "Correct"
-      changeColors(correctColor)
+var colors = generateColors(numOfSquares);
+var correctColor = pickRandomColor();
+var gameHeader = document.querySelector('h1');
+var messageDisplay = document.querySelector('#message');
+var resetButton = document.querySelector('#resetButton');
     } else {
       messageDisplay.textContent = "Try Again"
       this.style.background = "#232323";
@@ -26,6 +15,36 @@ for (var i = 0; i < squares.length; i++) {
 
 
 function changeColors(color) {
+startGame();
+function startGame() {
+  document.querySelector('span').textContent = correctColor;
+
+  for (var i = 0; i < squares.length; i++) {
+    styleSquare(squares[i], colors[i]);
+    squares[i].addEventListener('click', whenSquareIsClicked)
+  }
+}
+
+function styleSquare(square, color) {
+  square.style.background = color;
+  square.style.display = 'block';
+}
+
+function hideSquare(square) {
+  square.style.display = 'none';
+}
+
+function whenSquareIsClicked(square){
+  var clickedColor = this.style.background;
+
+  if (clickedColor === correctColor) {
+    messageDisplay.textContent = "Correct"
+    changeColorsToCorrectColor(correctColor)
+  } else {
+    messageDisplay.textContent = "Try Again"
+    this.style.background = '';
+  }
+}
   for (var i = 0; i < squares.length; i++){
     squares[i].style.background = color;
   }
