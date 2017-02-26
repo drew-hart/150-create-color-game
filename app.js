@@ -37,7 +37,15 @@ function whenHardButtonClicked() {
   startGame();
 }
 
-function changeColors(color) {
+resetButton.addEventListener('click', whenResetButtonClicked)
+function whenResetButtonClicked() {
+  colors = generateColors(numOfSquares);
+  correctColor = pickRandomColor();
+  gameHeader.style.background = '';
+  messageDisplay.textContent = '';
+  startGame();
+}
+
 startGame();
 function startGame() {
   document.querySelector('span').textContent = correctColor;
@@ -68,14 +76,15 @@ function whenSquareIsClicked(square){
     this.style.background = '';
   }
 }
+
+function changeColorsToCorrectColor(color) {
+  gameHeader.style.background = color;
   for (var i = 0; i < squares.length; i++){
     squares[i].style.background = color;
   }
-
-  document.querySelector('h1').style.background = color;
 }
 
-function pickColor() {
+function pickRandomColor() {
   // pick a random color from colors array
   var random = Math.floor(Math.random() * colors.length )
   return colors[random]
