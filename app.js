@@ -56,6 +56,4 @@ function randomColor() {
   var rbgColorString = `rgb(${red}, ${green}, ${blue})`
 
   return rbgColorString;
-
-  // return string
 }

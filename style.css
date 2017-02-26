@@ -1,19 +1,79 @@
 body {
   background: #232323;
+  font-family: 'Open Sans', sans-serif;
 }
 
-h1, span {
+h1 {
   color: white;
+  background: #3073ab;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 20px 0;
+  transition: background 0.2s;
 }
+
+h1 span {
+  font-size: 7rem;
+  line-height: 1.25;
+}
+
+.rgb {
+  display: block;
+}
+
 .square {
   background: #232323;
+  border-radius: 40px;
   width: 30%;
   padding-bottom: 30%;
   margin: 1.66%;
   float: left;
+  transition: background 0.6s;
 }
 
 #container {
   max-width: 600px;
   margin: 0 auto;
+  padding-top: 20px;
+}
+
+#stripe {
+  color: #000;
+  background: #fff;
+  text-align: center;
+  height: 30px;
+}
+
+#message {
+  color: #3073ab;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  display: inline-block;
+  width: 20%;
+}
+
+.selected {
+  color: #fff;
+  background: #3073ab;
+}
+
+button {
+  color: #3073ab;
+  background: none;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  height: 100%;
+  transition: all 0.1s;
+  outline: none;
+}
+
+button:hover{
+  color: #fff;
+  background: #3073ab;
 }
